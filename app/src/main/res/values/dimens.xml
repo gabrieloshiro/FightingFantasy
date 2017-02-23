@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="all_margin_standard">16dp</dimen>
+    <dimen name="all_margin_large">24dp</dimen>
+</resources>
