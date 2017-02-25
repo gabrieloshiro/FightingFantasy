@@ -15,7 +15,7 @@ public class StringProvider {
         return context.getString(stringId);
     }
 
-    public String getString(@StringRes int stringId, String... args) {
+    public String getString(@StringRes int stringId, Object... args) {
         return context.getString(stringId, args);
     }
 }

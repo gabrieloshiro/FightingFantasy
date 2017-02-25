@@ -8,6 +8,11 @@ public class FightingFantasyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+        initTimber();
+
+    }
+
+    private void initTimber() {
 
     }
 }

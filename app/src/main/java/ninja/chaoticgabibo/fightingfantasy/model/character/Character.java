@@ -1,14 +1,16 @@
-package ninja.chaoticgabibo.fightingfantasy.model;
+package ninja.chaoticgabibo.fightingfantasy.model.character;
 
-public class Enemy {
+public abstract class Character {
+
+    public static final int DEFAULT_DAMAGE = 2;
 
     private int initialSkill;
-    private int initialStamina;
-
     private int currentSkill;
+
+    private int initialStamina;
     private int currentStamina;
 
-    public Enemy(int initialSkill, int initialStamina) {
+    public Character(int initialSkill, int initialStamina) {
         this.initialSkill = initialSkill;
         this.initialStamina = initialStamina;
     }
@@ -44,4 +46,21 @@ public class Enemy {
     public void setCurrentStamina(int currentStamina) {
         this.currentStamina = currentStamina;
     }
+
+    public void receiveDamage(int damage) {
+        currentStamina = currentStamina - damage;
+    }
+
+    public void receiveDamage() {
+        receiveDamage(DEFAULT_DAMAGE);
+    }
+
+    /**
+     * TODO Check "O ladrão da meia noite", existe uma criatura chamada Poltergeist que pode causar
+     * dano mas tem stamina 0. A batalha funciona de um jeito diferente
+     */
+    public boolean isDead() {
+        return currentStamina == 0;
+    }
+
 }
