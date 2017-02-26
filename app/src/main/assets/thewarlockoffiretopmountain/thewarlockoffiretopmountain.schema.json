@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "A book is a collection of references.",
+  "type" : "array",
+  "references" : {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "number"
+      },
+      "text": {
+        "type": "string"
+      },
+      "references" : {
+        "type" : "array",
+        "items" : {
+          "type" : "object",
+          "properties" : {
+            "description" : {"type" : "string" },
+            "reference" : {"type" : "number" },
+            "effects" : {
+              "type" : "object",
+              "properties" : {
+                "stamina": {"type" : "number" }
+              }
+            },
+            "battle" : {
+              "type" : "object",
+              "properties" : {
+                "enemies" : {
+                  "type" : "array",
+                  "items": {
+                    "type" : "object",
+                    "properties" : {
+                      "name" : {"type" : "string" },
+                      "skill" : {"type" : "number" },
+                      "stamina" : {"type" : "number" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required" : ["description", "reference" ]
+        }
+      }
+    },
+    "required" : ["id", "text"]
+  }
+}
